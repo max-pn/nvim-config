@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
   {
     -- move lazy lockfile as ~/.config/nvim/ is managed by home-manager
-    lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
+    lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
 
     -- plugins structure
     { import = "max-pn.plugins" },         -- main plugins file (meant for general dependencies)

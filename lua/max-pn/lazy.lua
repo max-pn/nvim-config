@@ -19,9 +19,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
   {
-    -- move lazy lockfile as ~/.config/nvim/ is managed by home-manager
-    lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
-
     -- plugins structure
     { import = "max-pn.plugins" },         -- main plugins file (meant for general dependencies)
     { import = "max-pn.plugins.editor" },  -- editor enhancements like treesitter, autocomplete, formatting, etc.
@@ -32,6 +29,9 @@ require("lazy").setup(
     -- TEST: { import = "max-pn.plugins.langs" },  -- language specific plugins
   },
   {
+    -- move lazy lockfile as ~/.config/nvim/ is managed by home-manager
+    lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
+
     checker = {
       enabled = true,
       notify = false,

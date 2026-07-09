@@ -15,6 +15,7 @@ return {
 				markdown = { "prettierd", "prettier" },
 				-- nix = { "nixfmt" }, -- Configured in vim.lsp.nixd.settings
 				plaintex = { "latexindent" },
+				python = { "ruff" },
 				typescript = { "prettierd", "prettier" },
 				tex = { "latexindent" },
 				typescriptreact = { "prettierd", "prettier" },

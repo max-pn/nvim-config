@@ -35,7 +35,7 @@ vim.lsp.enable("prismals")
 vim.lsp.enable("pyright")
 
 -- tailwind
-vim.lsp.enable("tailwindcss")
+-- vim.lsp.enable("tailwindcss")
 
 -- enable lsp keymaps
 vim.api.nvim_create_autocmd("LspAttach", {

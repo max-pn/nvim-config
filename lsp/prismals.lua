@@ -11,12 +11,27 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'prisma-language-server', '--stdio' },
-  filetypes = { 'prisma' },
-  settings = {
-    prisma = {
-      prismaFmtBinPath = '',
-    },
-  },
-  root_markers = { '.git', 'package.json' },
+	cmd = function(dispatchers)
+		local local_cmd = vim.fs.joinpath(vim.fn.getcwd(), "node_modules", ".bin", "prisma-language-server")
+
+		local cmd = vim.uv.fs_stat(local_cmd) and { local_cmd, "--stdio" } or { "prisma-language-server", "--stdio" }
+
+		return vim.lsp.rpc.start(cmd, dispatchers)
+	end,
+
+	filetypes = { "prisma" },
+
+	root_markers = {
+		"schema.prisma",
+		"prisma.config.ts",
+		"prisma.config.js",
+		"package.json",
+		".git",
+	},
+
+	settings = {
+		prisma = {
+			prismaFmtBinPath = "",
+		},
+	},
 }

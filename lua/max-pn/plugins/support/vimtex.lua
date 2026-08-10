@@ -2,7 +2,11 @@ return {
 	"lervag/vimtex",
 	lazy = false,
 	init = function()
-		vim.g.vimtex_view_method = "skim"
+		if vim.fn.executable("skim") == 1 then
+			vim.g.vimtex_view_method = "skim"
+		elseif vim.fn.executable("zathura") == 1 then
+			vim.g.vimtex_view_method = "zathura"
+		end
 		vim.g.vimtex_compiler_latexmk = {
 			engine = "-xelatex",
 			options = {

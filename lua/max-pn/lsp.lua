@@ -16,6 +16,9 @@ vim.lsp.enable("ts_ls")
 -- json, jsonc
 vim.lsp.enable("jsonls")
 
+-- julia
+vim.lsp.enable("julials")
+
 -- latex
 vim.lsp.enable("texlab")
 

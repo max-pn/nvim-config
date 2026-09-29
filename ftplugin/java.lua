@@ -1,3 +1,8 @@
+-- NOTE: Lomobk setup
+-- 1. Download latest Lombok jar: https://projectlombok.org/download
+-- 2. move lombok.jar to ~/.java
+local lombok_path = vim.fn.expand("~/.java/lombok.jar")
+
 -- See `:help vim.lsp.start` for an overview of the supported `config` options.
 local config = {
 	name = "jdtls",
@@ -8,7 +13,10 @@ local config = {
 	-- As alternative you could also avoid the `jdtls` wrapper and launch
 	-- eclipse.jdt.ls via the `java` executable
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-	cmd = { "jdtls" },
+	cmd = {
+		"jdtls",
+		"--jvm-arg=-javaagent:" .. lombok_path, -- lombok setup, see above
+	},
 
 	-- `root_dir` must point to the root of your project.
 	-- See `:help vim.fs.root`
